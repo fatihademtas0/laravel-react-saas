@@ -2,10 +2,10 @@ import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import { Link, usePage } from '@inertiajs/react';
-import { useState } from 'react';
+import {Link, usePage} from '@inertiajs/react';
+import {useState} from 'react';
 
-export default function AuthenticatedLayout({ header, children }) {
+export default function AuthenticatedLayout({header, children}) {
     const user = usePage().props.auth.user;
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
@@ -19,7 +19,8 @@ export default function AuthenticatedLayout({ header, children }) {
                         <div className="flex">
                             <div className="flex shrink-0 items-center">
                                 <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                                    <ApplicationLogo
+                                        className="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200"/>
                                 </Link>
                             </div>
 
@@ -29,6 +30,20 @@ export default function AuthenticatedLayout({ header, children }) {
                                     active={route().current('dashboard')}
                                 >
                                     Dashboard
+                                </NavLink>
+
+                                <NavLink
+                                    href={route('feature1.index')}
+                                    active={route().current('feature1.index')}
+                                >
+                                    Feature 1
+                                </NavLink>
+
+                                <NavLink
+                                    href={route('feature2.index')}
+                                    active={route().current('feature2.index')}
+                                >
+                                    Feature 2
                                 </NavLink>
                             </div>
                         </div>
@@ -133,6 +148,20 @@ export default function AuthenticatedLayout({ header, children }) {
                             active={route().current('dashboard')}
                         >
                             Dashboard
+                        </ResponsiveNavLink>
+
+                        <ResponsiveNavLink
+                            href={route('feature1.index')}
+                            active={route().current('feature1.index')}
+                        >
+                            Feature 1
+                        </ResponsiveNavLink>
+
+                        <ResponsiveNavLink
+                            href={route('feature2.index')}
+                            active={route().current('feature2.index')}
+                        >
+                            Feature 2
                         </ResponsiveNavLink>
                     </div>
 
